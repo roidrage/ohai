@@ -93,8 +93,8 @@ module Ohai
       end
     end
     
-    def set_attribute(name, *value)
-      @data[name] = *value
+    def set_attribute(name, value)
+      @data[name] = value
       @data[name]
     end
     
@@ -108,7 +108,7 @@ module Ohai
       Ohai::Config[:plugin_path].each do |path|
         [ 
           Dir[File.join(path, '*')], 
-          Dir[File.join(path, @data[:os], '**', '*')] 
+          Dir[File.join(path, (@data[:os]||''), '**', '*')] 
         ].flatten.each do |file|
           file_regex = Regexp.new("#{path}#{File::SEPARATOR}(.+).rb$")
           md = file_regex.match(file)
