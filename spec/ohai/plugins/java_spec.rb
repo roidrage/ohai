@@ -21,8 +21,8 @@ require File.join(File.dirname(__FILE__), '..', '..', '/spec_helper.rb')
 describe Ohai::System, "plugin java" do
   before(:each) do
     @ohai = Ohai::System.new
-    @ohai.stub!(:require_plugin).and_return(true)
     @ohai[:languages] = Mash.new
+    @ohai.stub!(:require_plugin).and_return(true)
     @status = 0
     @stdout = ""
     @stderr = "java version \"1.5.0_16\"\nJava(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_16-b06-284)\nJava HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)"

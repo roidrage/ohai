@@ -168,7 +168,7 @@ module Ohai
       @plugin_path = plugin_name
       
       filename = "#{plugin_name.gsub("::", File::SEPARATOR)}.rb"
-            
+
       Ohai::Config[:plugin_path].each do |path|
         check_path = File.expand_path(File.join(path, filename))
         begin
@@ -215,7 +215,7 @@ module Ohai
     def method_missing(name, *args)
       return get_attribute(name) if args.length == 0 
       
-      set_attribute(name, *args)
+      set_attribute(name, args.size == 1 ? args.first : args)
     end
     
     private
