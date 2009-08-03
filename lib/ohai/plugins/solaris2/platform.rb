@@ -23,7 +23,7 @@ popen4("uname -X") do |pid, stdin, stdout, stderr|
   stdout.each do |line|
     case line
     when /^System =\s+(.+)$/
-      platform = ($1.eql?("SunOS") ? "solaris2" : $1.downcase)
+      platform ($1.eql?("SunOS") ? "solaris2" : $1.downcase)
     when /^Release =\s+(.+)$/
       platform_version $1
     when /^KernelID =\s+(.+)$/

@@ -18,4 +18,4 @@
 
 provides "languages"
 
-languages = Mash.new
+languages Mash.new

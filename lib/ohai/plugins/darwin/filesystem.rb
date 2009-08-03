@@ -18,7 +18,7 @@
 
 provides "filesystem"
 
-fs = Mash.new
+fs Mash.new
 
 block_size = 0
 popen4("df") do |pid, stdin, stdout, stderr|
